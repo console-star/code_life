@@ -43,7 +43,7 @@
     "stylus": "^0.54.5",
     "stylus-loader": "^2.1.1",
     "svg-progress-bar": "^0.1.17",
-    "vant": "^1.1.5",
+    "vant": "^2.1.8",
     "vee-validate": "^2.0.9",
     "vue": "^2.5.2",
     "vue-3d-picker": "^2.1.0",
