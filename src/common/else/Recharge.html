@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>提现</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script type="text/javascript" src="../../lib/rem.js" ></script>
+		<script type="text/javascript" src="../../lib/jquery-3.2.1.min.js" ></script>
+		<style>
+			.withdraw_deposit li{
+				width: 100%;
+				height: 1rem;
+				line-height: 1rem;
+				border-bottom:1px solid #F7F7F7;
+				padding-left: 0.3rem;
+				position: relative;
+			}
+			.bank_find_img img{
+				width: 0.5rem;
+				height: 0.5rem;
+				margin-top: 0.25rem;	
+			}
+			.bank_find{
+				display: inline-block;
+				margin-left: 0.15rem;
+			}
+			.bank_find span{
+				margin-left: 0.1rem;
+				margin-right: 0.1rem;
+				color:#f84d4d ;
+			}
+			.withdraw_deposit li:nth-child(2){
+				height: 2.3rem !important;
+			}
+			.withdraw_deposit_write img{
+				width: 1.1rem;
+				height: 1.1rem;
+				margin-top: 0.6rem;
+			}
+			.withdraw_deposit_write div{
+				display: inline-block;
+				margin-top: 0.65rem;
+				margin-left: 0.3rem;
+			}
+			.withdraw_deposit_write div p{
+				height: 0.5rem !important;
+				line-height: 0.5rem !important;
+			}
+			.remaining_sum input{
+				padding-left: 0.6rem;
+			}
+			.remaining_sum p img{
+				width: 0.5rem;
+				height: 0.5rem;
+				margin-top: 0.24rem;
+				margin-right: 0.2rem
+			}
+			.remaining_sum p span{
+				color: #f84d4d;
+				margin-left: 0.1rem;
+				margin-right: 0.1rem;
+			}
+			.auth_code p{
+				height: 0.8rem;
+				line-height: 0.8rem;
+				border: 1px solid #5d9dff;
+				position:absolute;
+				top: 0.13rem;
+				right: 0.4rem;
+				border-radius: 0.1rem;
+				padding-right: 0.1rem;
+				padding-left: 0.1rem;
+				color: #5d9dff;
+			}
+			.withdraw_deposit_btn{
+				text-align: center;
+			}
+			.withdraw_deposit_btn button{
+				width: 70%;
+				height: 0.8rem;
+				background: #f84d4d;
+				color: white;
+				border-radius: 0.1rem;
+				border: 0;
+				margin-top: 1rem;
+			}
+			.chongzhishuoming{
+				text-align: center;
+				margin-top: 0.3rem;
+			}
+			.chongzhishuoming a{
+				color: #5d9dff;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="withdraw_deposit">
+			<li><span class="bank_find_img"><img src="../bottom_icon5.png"/></span><p class="bank_find">账户余额<span>0</span>元</p></li>
+			<li class="withdraw_deposit_write">
+				<img src="../bottom_icon5.png" />
+				<div>
+					<p>中国银行</p>
+				    <p>5454445465465464</p>
+				</div>	
+			</li>
+			<li class="remaining_sum">
+				充值金额<input type="text" placeholder="输入充值金额"/>
+			</li>
+			<li class="auth_code">短信验证码：<input type="text" placeholder="请输入短信验证码"/><p>获取验证码</p></li>
+		</ul>
+		<p style="margin-top: 0.3rem;padding-left: 0.3rem;color: #f84d4d;">温馨提示：单笔限额5.00万元，单日无限额</p>
+		<p class="withdraw_deposit_btn"><button>充值</button></p>
+		<p class="chongzhishuoming"><a href="https://www.jinlingdai.cn/mobile/user/tibchong">《充值说明》</a></p>
+	</body>
+</html>

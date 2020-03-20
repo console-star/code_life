@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>风险测评</title>
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet"> </head>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+		}
+		
+		html,
+		body {
+			font-family: "微软雅黑";
+			font-size: 14px;
+			color: #333;
+		}
+		
+		label {
+			width: 100%;
+			display: inline-block;
+			line-height: 20px;
+			text-align: left;
+			position: relative;
+			padding-left: 10px;
+		}
+		
+		label input {
+			width: 15px;
+			height: 15px;
+			vertical-align: bottom;
+			margin-right: .1rem;
+			opacity: 0;
+		}
+		
+		.spot {
+			display: inline-block;
+			width: 18px;
+			height: 18px;
+			background: url(../../common/radio_bg_b.png) no-repeat;
+			/*默认的样式图片*/
+			background-size: 16px;
+			position: absolute;
+			top: .2rem;
+			left: 0;
+			z-index: 5;
+		}
+		
+		input:checked+.spot {
+			background: url("../../common/radio_bg.png") no-repeat;
+			/*选中后的样式图片*/
+			background-size: 16px;
+		}
+		
+		.risk_evaluating ul li {
+			list-style: none;
+			margin-top: 20px;
+		}
+		
+		.risk_evaluating ul li:nth-child(1) {
+			margin-top: 0;
+		}
+		
+		.risk_evaluating ul li .quesition {
+			margin-top: 10px;
+			position: relative;
+		}
+		
+		.risk_evaluating ul li .quesition p {
+			float: left;
+			width: 80%;
+			margin-left: 10px;
+		}
+		
+		.risk_evaluating {
+			padding: 20px;
+		}
+		
+		.quesitionbtn {
+			width: 90%;
+			height: 40px;
+			background: #f35e3e;
+			color: white;
+			border: 0;
+			border-radius: 5px;
+			margin-top: 50px;
+			margin-bottom: 40px;
+		}
+	</style>
+
+	<body>
+		<div class="risk_evaluating">
+			<ul>
+				<li>
+					<div>1、您的目前年龄？</div>
+					<div class="quesition"><label><input type="radio" name="test_1" value="A" ><i class="spot"></i><p>小于25岁</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_1" value="B"><i class="spot"></i><p>25-40岁之间</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_1" value="C"><i class="spot"></i><p>41-60岁之间</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_1" value="D"><i class="spot"></i><p>大于60岁</p></label></div>
+				</li>
+				<li>
+					<div>2、您当前的资产主要构成情况？</div>
+					<div class="quesition"><label><input type="radio" name="test_2" value="A"><i class="spot"></i><p>只有银行存款（活期或者定期）</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_2" value="B"><i class="spot"></i><p>主要是银行存款，还有少量国债和基金，蓝筹股</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_2" value="C"><i class="spot"></i><p>既有股票、基金、理财产品，也有银行存款，前后两者各半</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_2" value="D"><i class="spot"></i><p>以期货等金融衍生产品和股票投资为主</p></label></div>
+				</li>
+				<li>
+					<div>3、您当前用家庭资产多少比例进行投资？</div>
+					<div class="quesition"><label><input type="radio" name="test_3" value="A"><i class="spot"></i><p>10%之内的资产</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_3" value="B"><i class="spot"></i><p>10-20%之间</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_3" value="C"><i class="spot"></i><p>25-50%之间</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_3" value="D"><i class="spot"></i><p>超过50%</p></label></div>
+				</li>
+				<li>
+					<div>4、如果有个为期1年投资项目可参与，投资成功的概率是50%，一旦成功可获得4倍收益，一旦失败则本钱全部损失，对这样的投资您愿意投入的资金量是多少？ </div>
+					<div class="quesition"><label><input type="radio" name="test_4" value="A"><i class="spot"></i><p>一分也不投入</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_4" value="B"><i class="spot"></i><p>1个月的收入</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_4" value="C"><i class="spot"></i><p>3个月的收入</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_4" value="D"><i class="spot"></i><p>6个月或超过6个月的收入</p></label></div>
+				</li>
+				<li>
+					<div>5、往往高收益的基金或理财产品伴随着高风险您准备承担多大的风险？</div>
+					<div class="quesition"><label><input type="radio" name="test_5" value="A"><i class="spot"></i><p>不愿意让我的钱有任何损失</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_5" value="B"><i class="spot"></i><p>因为基金有潜在的增值功能，我愿意承担一定的风险</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_5" value="C"><i class="spot"></i><p>很愿意通过长期投资使资产增值保值，也愿意在此过程中承担风险</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_5" value="D"><i class="spot"></i><p>我愿意投资最具增长潜力的产品，也愿意为了更高的收益承受大幅度的风险变动</p></label></div>
+				</li>
+				<li>
+					<div>6、请问您投资价格波动性的产品有多少年的经验？（具有价格波动的产品包括股票、基金、外汇、期权期货等金融产品）</div>
+					<div class="quesition"><label><input type="radio" name="test_6" value="A"><i class="spot"></i><p>7-10年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_6" value="B"><i class="spot"></i><p>4-7年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_6" value="C"><i class="spot"></i><p>1-3年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_6" value="D"><i class="spot"></i><p>从来没有或刚刚开始</p></label></div>
+				</li>
+				<li>
+					<div>7、通常情况下您一笔投资预备持有的期限是多久？</div>
+					<div class="quesition"><label><input type="radio" name="test_7" value="A"><i class="spot"></i><p>长期--超过7年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_7" value="B"><i class="spot"></i><p>中期--4年到7年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_7" value="C"><i class="spot"></i><p>中短期--1年到3年</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_7" value="D"><i class="spot"></i><p>短期--1年内</p></label></div>
+				</li>
+				<li>
+					<div>8、一年中您能最能接受的资产波动范围是</div>
+					<div class="quesition"><label><input type="radio" name="test_8" value="A"><i class="spot"></i><p>最多盈利10%，最大亏损5%</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_8" value="B"><i class="spot"></i><p>最多盈利20%，最大亏损15%</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_8" value="C"><i class="spot"></i><p>最多盈利40%，最大亏损30%</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_8" value="D"><i class="spot"></i><p>最多盈利60%，最大亏损50%</p></label></div>
+				</li>
+				<li>
+					<div>9、您此次投资的目的是？</div>
+					<div class="quesition"><label><input type="radio" name="test_9" value="A"><i class="spot"></i><p>就希望能每年分红或者获得固定的收益</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_9" value="B"><i class="spot"></i><p>希望能获得分红并实现资产的部分升值</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_9" value="C"><i class="spot"></i><p>两者各半</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_9" value="D"><i class="spot"></i><p>主要是为了资产升值</p></label></div>
+				</li>
+				<li>
+					<div>10、 如果您刚刚投资就遇到市场调整，您能承受的损失大概是多少？</div>
+					<div class="quesition"><label><input type="radio" name="test_10" value="A"><i class="spot"></i><p>5%以内</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_10" value="B"><i class="spot"></i><p>6-20%</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_10" value="C"><i class="spot"></i><p>21-40%</p></label></div>
+					<div class="quesition"><label><input type="radio" name="test_10" value="D"><i class="spot"></i><p>超过40%</p></label></div>
+				</li>
+			</ul>
+			<div style="text-align: center;"><button class='quesitionbtn' onclick="quesitionbtn()">查看结果</button></div>
+		</div>
+
+		<script type="text/javascript" src="../../assets/jquery-3.2.1.min.js"></script>
+		<script>
+			/*获取cookie*/
+	         function getCookie(c_name) {
+				if(document.cookie.length > 0) {
+					let c_start = document.cookie.indexOf(c_name + "=")
+					if(c_start != -1) {
+						c_start = c_start + c_name.length + 1
+						let c_end = document.cookie.indexOf(";", c_start)
+						if(c_end == -1) c_end = document.cookie.length
+						return unescape(document.cookie.substring(c_start, c_end))
+					}
+				}
+				return ""
+			}
+
+			function quesitionbtn() {
+				var i = 0;
+				var data = {};
+				var uid = getCookie('name');
+				var mess = {
+					'token': uid,
+				};
+				$('input[type=radio]:checked').each(function(index, item) {
+					data[$(item).attr('name')] = $(item).val();
+					i++;
+
+				})
+				if(i < 10) {
+					alert('请先答完题目再查看结果');
+					return false;
+				}
+				mess['data'] = data;
+				console.log(mess)
+				$.ajax({
+					type: 'post',
+					data: mess,
+					url: 'https://develop.jinlingdai.cn/mobile/page/countscores',
+					success: function(data) {
+						var datac = eval('(' + data + ')');
+						console.log(datac.data.score);
+						var score=datac.data.score
+                      window.location.href="http://192.168.1.11:8020/jinlingdaiwap/jinlingdai/jinlingdai/src/components/mine/risk_result.html?name="+score
+						//						var borrow_info = _self.borrowdetail.borrow_info
+					}
+
+				});
+			}
+		</script>
+	</body>
+
+</html>

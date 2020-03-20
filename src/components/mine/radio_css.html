@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>风险测评</title>
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet"> </head>
+<style>
+    label{
+        display:inline-block;
+        width:200px;
+        height:50px;
+        line-height:.8rem;
+        text-align:left;
+        position: relative;
+    }
+    label input{
+        width: 15px;
+        height: 15px;
+        vertical-align: bottom;
+        margin-right:.1rem;
+        opacity: 0;
+    }
+    .spot{
+        display:inline-block;
+        width:17px;
+        height:17px;
+        background:url(../../common/radio_bg_b.png) no-repeat;  /*默认的样式图片*/
+        background-size:16px;
+        position: absolute;
+        top:.2rem;
+        left:0;
+        z-index:5;
+    }
+    input:checked + .spot{
+        background:url("../../common/radio_bg.png") no-repeat;  /*选中后的样式图片*/
+        background-size:16px;
+    }
+</style>
+
+	<body>
+		<div class="risk_evaluating">
+			<ul>
+			<li>
+				<label><input type="radio" name="1"><i class="spot"></i>123456</label>
+		        <label><input type="radio" name="1"><i class="spot"></i>123456</label>
+			</li>
+		</ul>
+		</div>
+		
+	</body>
+
+</html>

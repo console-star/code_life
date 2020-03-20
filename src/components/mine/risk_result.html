@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" name="viewport" />
+		<title>测评结果</title>
+		<script type="text/javascript" src="../../lib/jquery-3.2.1.min.js"></script>
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			html,body{
+				font-family: "微软雅黑";
+				color: #333;
+			}
+			.top_type{
+				border-bottom: 1px dashed #aaa;
+			}
+			.top_type p {
+				text-align: center;
+				font-size: 13px;
+				line-height: 30px;
+			}
+			.top_type p:nth-child(4) {
+				width: 88%;
+				margin: auto;
+			}
+			
+			.top_type p:nth-child(2) {
+				text-align: center;
+				margin-top: 2rem;
+			}
+			
+			.top_type p img {
+				width: 6rem;
+				height: 6rem;
+			}
+			
+			.top_type_content {
+				line-height: 30px;
+				padding: 20px;
+				font-size: 14px;
+			}
+			
+			.top_type_wai {
+				background: white;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				position: relative;
+				font-weight: 600;
+				font-size: 16px;
+			}
+			
+			.top_type_wai img {
+				position: absolute;
+				left: 20px;
+				width: 0.5rem;
+				height: 0.5rem;
+				top: 0.13rem;
+			}
+			
+			.top_type_wai a {
+				position: absolute;
+				right: 20px;
+				font-size: 12px;
+				color: #aaa;
+			}
+			
+			.red_pack {
+				text-align: center;
+				display: none;
+			}
+			
+			.red_pack img {
+				width: 65%;
+			}
+			.typet{
+				display: none;
+			}
+			.datatime{
+				line-height: 50px;
+			}
+			.score_type{
+			    color: #f35e3e;
+				font-size: 15px !important;
+			}
+			.typet{
+				margin-top: 30px !important;
+			}
+			.share_it{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 50px;
+				background: #f35e3e;
+				color: white;
+				position: fixed;
+				right: 30px;
+				top: 50%;
+			}
+		</style>
+		<script>
+			
+		</script>
+	</head>
+
+	<body>
+		<div class="risk_result">
+			<div class="top_type" style="position: relative;">
+				<div class="top_type_wai">风险等级评测
+					<a href="/Mobile/page/dangerexplain">评测说明</a>
+				</div>
+				<!--积极-->
+				<p class="positive typet"><img src="../../common/jiji.png"/></p>
+
+				<!--稳健-->
+				<p class="steady typet"><img src="../../common/wenjian.png"/></p>
+				<!--保守-->
+				<p class="keep typet"><img src='../../common/baoshou.png' /></p>
+				<p class="score_type"></p>
+				<p>评测时间：<span class="datatime"></span></p>
+			</div>
+			<div class="top_type_content">
+				<!--积极型-->
+				<!-- 您属于积极型的投资者，追求更高的理财收益，希望投资收益率远高于通货膨胀率，同时也能承受较大的风险，对于收益和本金的波动都在心理预期之中，我们推荐您可以将资本分散投资于债券、基金、股票等产品中，您既可以考虑低风险产品，也可以考虑部分持有风险程度较高的产品 -->
+				<!--稳健型-->
+				您属于稳健型的投资者，追求一定的理财收益，希望让资本金不被通货膨胀侵蚀，您可以承担一定的投资风险，对产品预期收益率较高，对价格波动的承受能力也高于保守型的投资者，但是您并不是很愿意承担本金受损的风险，您可以考虑风险较低的债券型产品并少量介入风险程度较高的产品。
+				<!--保守型-->
+				<!--您属于保守型的投资者，您的理财方式以保本为第一目的，可以接受较低的理财收益，但是不能接受本金或预期收益的降低，推荐您进行低风险的理财投资活动，如银行定期储蓄等，同时您也可以考虑货币基金等低风险产品。（该类型用户不建议您投资P2P类产品）-->
+			</div>
+			<div class="red_pack">
+				<a href=><img src="../../common/red_pack.png"/></a>
+			</div>
+		</div>
+	<!--	<img id="img" src="" />-->
+		<script type="text/javascript" src="../../assets/canvas.js"></script>
+		<script>
+			var URLParams = new Array();
+			var aParams = document.location.search.substr(1).split('&');
+			for(i = 0; i < aParams.length; i++) {
+				var aParam = aParams[i].split('=');
+				URLParams[aParam[0]] = aParam[1];
+			}
+		    name=URLParams["name"]
+		    console.log(name);
+		    var scoretype=name.split("|")[0];
+		    var scoredata=name.split("|")[1];
+		    if(scoretype<18){
+		    	$(".score_type").html('保守型');
+		    	$('.keep').css('display','block')
+		    }else if(scoretype>=18||scoretype<39){
+		    	$(".steady").html('稳健型');
+		    	$('.positive').css('display','block')
+		    	
+		    }else{
+		    	$(".score_type").html('积极型');
+		    	$('.positive').css('display','block')
+		    }
+		    function timestampToTime(timestamp) {
+		        var date = new Date(timestamp * 1000);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+		        Y = date.getFullYear() + '年';
+		        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
+		        D = date.getDate() + '日';
+		        h = date.getHours() + ':';
+		        m = date.getMinutes() + ':';
+		        s = date.getSeconds();
+		        return Y+M+D+h+m+s;
+		    }
+		    timestampToTime(scoredata);
+		    $(".datatime").html(timestampToTime(scoredata));
+			window.onload = function() {
+				setTimeout(function() {
+					document.getElementsByClassName("red_pack")[0].style.display = "block";
+				}, 2000);
+				
+//				$(".share_it").click(function(){
+//					var element = document.querySelector('.risk_result');
+//				//要显示图片的img标签
+//				var image = document.querySelector('#img');
+//				//调用html2image方法
+//				html2image(element, image);
+//				function html2image(source,image) {
+//			        html2canvas(source).then(function(canvas) {
+//			            var imageData = canvas.toDataURL(1);
+//			            image.src = imageData;
+//			            width:300;
+//			            height:600;
+//			            
+//			    });
+//			    }
+//				})
+//			   
+			}
+		</script>
+	</body>
+
+</html>

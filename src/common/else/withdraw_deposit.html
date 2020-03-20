@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>提现</title>
+		<link rel="stylesheet" href="../css/reset.css" />
+		<script type="text/javascript" src="../../lib/rem.js" ></script>
+		<script type="text/javascript" src="../../lib/jquery-3.2.1.min.js" ></script>
+		<style>
+			.withdraw_deposit li{
+				width: 100%;
+				height: 1rem;
+				line-height: 1rem;
+				border-bottom:1px solid #F7F7F7;
+				padding-left: 0.3rem;
+				position: relative;
+			}
+			.bank_find_img img{
+				width: 0.8rem;
+				height: 0.8rem;
+				margin-top: 0.1rem;	
+			}
+			.bank_find{
+				display: inline-block;
+				margin-left: 0.5rem;
+			}
+			.withdraw_deposit li:nth-child(2){
+				height: 2.3rem !important;
+			}
+			.withdraw_deposit_write input{
+				height: 1.3rem;
+			    font-size: 0.4rem;
+			    padding-left: 1.5rem;
+			}
+			.withdraw_deposit_write h1{
+			    font-size: 0.8rem;
+			    position: absolute;
+			    left: 0.8rem;
+			    top: 1.1rem;
+			}
+			.remaining_sum p{
+				float: left;
+				width: 50%;
+			}
+			.remaining_sum p img{
+				width: 0.5rem;
+				height: 0.5rem;
+				margin-top: 0.24rem;
+				margin-right: 0.2rem
+			}
+			.remaining_sum p span{
+				color: #f84d4d;
+				margin-left: 0.1rem;
+				margin-right: 0.1rem;
+			}
+			.auth_code p{
+				height: 0.8rem;
+				line-height: 0.8rem;
+				border: 1px solid #5d9dff;
+				position:absolute;
+				top: 0.13rem;
+				right: 0.4rem;
+				border-radius: 0.1rem;
+				padding-right: 0.1rem;
+				padding-left: 0.1rem;
+				color: #5d9dff;
+			}
+			.withdraw_deposit_btn{
+				text-align: center;
+			}
+			.withdraw_deposit_btn button{
+				width: 70%;
+				height: 0.8rem;
+				background: #f84d4d;
+				color: white;
+				border-radius: 0.1rem;
+				border: 0;
+				margin-top: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="withdraw_deposit">
+			<li><span class="bank_find_img"><img src="../bottom_icon5.png"/></span><p class="bank_find">中国银行<span>尾号(7351)</span></p></li>
+			<li class="withdraw_deposit_write">
+				<p>提现金额(元)</p>
+				<h1>¥</h1>
+				<input type="text" placeholder="请输入提现金额"/>
+			</li>
+			<li>手续费：<span style="color: #f84d4d;">0.00</span>元</li>
+			<li class="remaining_sum">
+				<p><img src="../bottom_icon6.png"/>账户余额<span>0.00</span>元</p>
+				<p><img src="../bottom_icon5.png"/><span>账户余额不足</span></p>
+			</li>
+			<li class="auth_code">短信验证码：<input type="text" placeholder="请输入短信验证码"/><p>获取验证码</p></li>
+		</ul>
+		<p style="margin-top: 0.3rem;padding-left: 0.3rem;">温馨提示：提现请先阅读<a style="color: red;" href="http://www.jinlingdai.cn/mobile/user/tixian">《提现数说明》</a></p>
+		<p class="withdraw_deposit_btn"><button>提现</button></p>
+	</body>
+</html>

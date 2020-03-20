@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>修改交易密码</title>
+		<link rel="stylesheet" href="../../common/css/reset.css"/>
+		<script type="text/javascript" src="../../lib/rem.js" ></script>
+		<script type="text/javascript" src="../../lib/jquery-3.2.1.min.js" ></script>
+		<style>
+			.password_else li{
+				width: 100%;
+				height: 1rem;
+				line-height: 1rem;
+				border-bottom: 1px solid #F7F7F7;
+				padding-left:0.3rem ;
+				position: relative;
+			}
+			.password_else li input{
+				position: absolute;
+				left: 2.5rem;
+				top: 0.33rem;
+			}
+			.password_else li p{
+				position: absolute;
+				right: 0.5rem;
+				top: 0rem;
+				color: #5d9dff;
+			}
+			.service{
+				text-align: right;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				color: #5d9dff;
+				padding-right: 0.3rem;
+			}
+			.password_else_btn{
+				width: 70%;
+				height: 1rem;
+				color: white;
+				background: #f84d4d;
+				border: 0;
+				margin: auto;
+				border-radius: 0.1rem;
+				margin-top: 1.3rem;
+			}
+		
+		</style>
+	</head>
+	<body>
+		<ul class="password_else">
+			<li><span>银行卡后8位：</span><input type="text" placeholder="请输入已绑定的银行卡后8位"/></li>
+			<li><span>设置新密码：</span><input type="text" placeholder="请输入6位数字交易密码"/></li>
+			<li><span>确认新密码：</span><input type="text" placeholder="请再次输入交易密码"/></li>
+			<li><span>设置验证码：</span><input type="text" placeholder="请输入验证码"/><p>发送验证码</p></li>
+		</ul>
+		<p style="text-align: center;"><button class="password_else_btn">确认修改</button></p>
+		
+		
+		<script>
+			$(".service span").click(function(){
+				$(".password_else_service_bg").css("display","block");
+			})
+			$(".defalt").click(function(){
+				$(".password_else_service_bg").css("display","none");
+			})
+			
+		</script>
+	</body>
+</html>

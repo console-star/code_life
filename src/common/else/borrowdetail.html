@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+		<title>出借详情</title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<style>
+			* {
+				padding: 0;
+				margin: 0;
+				font-size: 12px;
+				list-style: none;
+			}
+			
+			body,
+			html {
+				height: 100%;
+				background: #F7F7F7;
+			}
+			.borrow_detail{
+				position: relative;
+			}
+			.borrow_detail_top {
+				border-bottom: 1px solid #F7F7F7;
+				height: 0.8rem;
+				background: white;
+			}
+			
+			.borrow_detail_top p {
+				height: 0.8rem;
+				line-height: 0.8rem;
+				float: left;
+				width: 48.3%;
+			}
+			
+			.borrow_detail_top p:nth-child(1) {
+				text-align: left;
+				padding-left: 0.3rem;
+			}
+			
+			.borrow_detail_top p:nth-child(2) {
+				text-align: right !important;
+				padding-right: 0.1rem;
+				color: #f35e3e;
+			}
+			
+			.borrow_detail_con {
+				background: white;
+			}
+			
+			.borrow_detail_con ul li {
+				width: 33.3%;
+				float: left;
+				padding-top: 0.3rem;
+			}
+			
+			.borrow_detail_con ul li p {
+				height: 0.4rem;
+				line-height: 0.4rem;
+				text-align: center;
+			}
+			
+			.borrow_detail_con ul li p:nth-child(2) {
+				color: #aaa;
+			}
+			
+			.borrow_detail_con ul li p:nth-child(1) {
+				font-size: 18px;
+			}
+			
+			.borrow_detail_con ul li .yield {
+				color: #f85932;
+			}
+			
+			.borrow_detail_con ul {
+				height: 1.6rem;
+			}
+			
+			#wrapper {
+				position: relative;
+				width: 5rem;
+				height: 0.13rem;
+			}
+			
+			#progressbar {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -50px;
+				margin-top: -10px;
+				width: 5rem;
+				height: 0.13rem;
+				border: 1px solid darkgray;
+			}
+			/*在进度条元素上调用动画*/
+			
+			#fill {
+				height: 100%;
+				animation: move 2s;
+				text-align: center;
+				background-color: #f45f37;
+			}
+			/*实现元素宽度的过渡动画效果*/
+			
+			@keyframes move {
+				0% {
+					width: 0;
+				}
+				100% {
+					width: 100%;
+				}
+			}
+			
+			.progressbar {
+				width: 70% !important;
+				height: 0.08rem;
+				/*margin-top: 5px;
+				margin-bottom: 35px;*/
+				margin: auto;
+				position: relative;
+				background-color: #EEEEEE;
+				box-shadow: inset 0px 1px 1px rgba(0, 0, 0, .1);
+			}
+			
+			.proggress {
+				height: 0.08rem !important;
+				width: 10px;
+				background-color: #f45f37 !important;
+			}
+			
+			.percentCount {
+				float: right;
+				margin-top: -10px;
+				margin-right: -0.8rem;
+				clear: both;
+				font-weight: bold;
+				font-family: Arial
+			}
+			
+			.borrow_money {
+				text-align: center;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				padding-left: 1rem;
+				border-bottom: 1px solid #F7F7F7;
+				background: white;
+			}
+			
+			.borrow_money_shuo {
+				height: 0.5rem;
+			}
+			
+			.borrow_money_shuo p {
+				width: 33.3%;
+				text-align: center;
+				float: left;
+				height: 0.5rem;
+				line-height: 0.5rem;
+				background: white;
+			}
+			
+			.borrow_detail {
+				height: 100%;
+			}
+			
+			.borrow_money_to {
+				margin-top: 0.2rem;
+				background: white;
+			}
+			
+			.borrow_money_to_top {
+				height: 0.5rem;
+				line-height: 0.5rem;
+				text-align: center;
+			}
+			
+			.borrow_money_bian {
+				width: 5rem;
+				margin: auto;
+				position: relative;
+			}
+			
+			.borrow_money_bian li {
+				height: 0.7rem;
+				line-height: 0.7rem;
+				text-align: center;
+			}
+			
+			.borrow_money_bian #shang {
+				width: 3rem;
+				margin: auto;
+				display: block;
+				height: 0.6rem;
+				line-height: 0.6rem;
+				color: #f36138;
+				text-align: center;
+				font-size: 18px;
+				border-bottom: 2px solid #aaa;
+			}
+			
+			.borrow_money_jian,
+			.borrow_money_jia {
+				width: 0.6rem;
+				height: 0.6rem;
+				line-height: 0.6rem;
+				text-align: center;
+				font-size: 18px;
+				color: #f36138;
+				background: white;
+				border: 1px solid #aaa;
+				border-radius: 0.1rem;
+			}
+			
+			.borrow_money_jian {
+				position: absolute;
+				left: 0.3rem;
+			}
+			
+			.borrow_money_jia {
+				position: absolute;
+				right: 0.3rem;
+				top: 0;
+			}
+			
+			#yiqian {
+				width: 2rem;
+				text-align: center;
+				font-size: 18px;
+				color: #f36138;
+			}
+			.remaining_sum{
+				height: 0.8rem;
+				line-height: 0.8rem;
+				padding-left: 0.3rem;
+				position: relative;
+			}
+			.remaining_sum div{
+				position: absolute;
+				right: 0.3rem;
+				top: 0;
+				width: 1.3rem;
+				height: 0.8rem;
+				line-height: 0.8rem;
+				padding-left: 0.5rem;
+			}
+			.remaining_sum div input{
+				position: absolute;
+				left: 0.13rem;
+				top: 0.2rem;
+			}
+			.borrow_detail_btn button{
+				position: absolute;
+				bottom: 1rem;
+				left: 0.75rem;
+				width: 80%;
+				height: 1rem;
+				border-radius: 0.1rem;
+				color: white;
+				background: #f35e3d;
+				border: 0;
+			}
+			.borrow_detail_btn .drag_area p{
+				position: absolute;
+				bottom: 2.3rem;
+				text-align: center;
+				width: 100%;
+				color: #53aecb;
+			}
+			/*标的详情*/
+			
+		</style>
+		<script type="text/javascript" src="../lib/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../lib/rem.js"></script>
+		<script type="text/javascript" src="../lib/progress_bar.js"></script>
+		<script type="text/javascript" src="../lib/pinner.js"></script>
+	</head>
+
+	<body style="height: 100%;">
+		<div class="borrow_detail" style="height: 11rem;">
+			<div class="borrow_detail_top">
+				<p>读的大V夫人大V</p>
+				<p>份的无色封我的</p>
+			</div>
+			<div class="borrow_detail_con">
+				<ul>
+					<li>
+						<p>34000</p>
+						<p>剩余金额</p>
+					</li>
+					<li>
+						<p class="yield">6.5%</p>
+						<p>借款年化</p>
+					</li>
+					<li>
+						<p>1</p>
+						<p>出借期限</p>
+					</li>
+				</ul>
+				<div id="progressbar1"></div>
+				<p class="borrow_money">出借金额：<span>200000</span>元</p>
+				<div class="borrow_money_shuo">
+					<p>100元起投</p>
+					<p>先息后本</p>
+					<p>即投计息</p>
+				</div>
+			</div>
+			<div class="borrow_money_to">
+				<p class="borrow_money_to_top">出借金额(元)</p>
+				<ul class="borrow_money_bian">
+					<li><input class="borrow_money_jian" readonly="readonly" type="button" name="minus" value="-" onclick="jian()"><input type="text" name="amount" value="0" id="shang"><input class="borrow_money_jia" readonly="readonly" type="button" name="plus" value="+" onclick="jia()"></li>
+					<li>预期收益：<input type="text" readonly="readonly" name="price" value="0" id="yiqian">元</li>
+				</ul>
+				<div class="remaining_sum">账户余额：<span class="your_money">25855</span>元<div><input id="use_allmoney" type="checkbox"/>全投</div></div>
+			</div>
+			
+			<div class="borrow_detail_btn">
+				<div class="drag_area">
+					<p>^^向上拖动查看详情</p>
+				</div>
+				<button>出借</button>
+			</div>
+				
+		</div>
+		<script>
+			$(function() {
+				$('#progressbar1').LineProgressbar({
+					percentage: 50
+				});
+
+				$("#a").Spinner({
+					value: 0,
+					min: 0,
+					len: 3,
+					max: 1000
+				});
+						
+			})
+			//实时显示预期获得收益
+			var price = 0.00;
+			var price1 = 0.00;
+			var price2 = 0.00;
+			function jian() {
+				var i = parseInt(document.getElementById("shang").valueOf().value) - 100;
+				if(i <= 0) {
+					i = 0;
+				}
+				document.getElementById("shang").valueOf().value = i;
+				price1 = 0.52 * i;
+				document.getElementById("yiqian").value = suan(price1) * 0.01;
+				zong();
+			}
+
+			function jia() {
+				var i = parseInt(document.getElementById("shang").valueOf().value) + 100;
+				document.getElementById("shang").valueOf().value = i;
+				price1 = 0.54 * i / 100;
+				document.getElementById("yiqian").value = suan(price1);
+				zong();
+			}
+      
+			function suan(number) {
+				price = price1 + price2;
+				if(isNaN(number)) {
+					return false;
+				}
+				number = Math.round(number * 100) / 100;
+				var s = number.toString();
+				var rs = s.indexOf(".");
+				if(rs < 0) {
+					rs = s.length;
+					s += ".";
+				}
+				while(s.length <= rs + 2) {
+					s += "0";
+				}
+				return s;
+			}
+
+			function zong() {
+				price = price1 + price2;
+				if(isNaN(price)) {
+					return false;
+				}
+				price = Math.round(price * 100) / 100;
+				var s = price.toString();
+				var rs = s.indexOf(".");
+				if(rs < 0) {
+					rs = s.length;
+					s += ".";
+				}
+				while(s.length <= rs + 2) {
+					s += "0";
+				}
+//				document.getElementById("totalPrice").innerHTML = s;
+			}
+			$('#shang').bind('input propertychange', function() {  
+              var aaa=document.getElementById("shang");
+              document.getElementById("yiqian").value=aaa.value*0.01*0.52;
+          });  
+          
+ $(":checkbox").on("change",function(){
+       
+        $("#shang").val($(".your_money").text());
+        $("#yiqian").val($(".your_money").text()*0.52)
+    });
+           		</script>
+	</body>
+
+</html>
